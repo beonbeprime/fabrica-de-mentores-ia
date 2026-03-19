@@ -85,12 +85,6 @@ Dentro da MAGNA, voce recebe a maquina de vendas completa: posicionamento valida
 
 👉 [Acesse fabricadementores.com](https://fabricadementores.com) e veja como funciona.
 
-| Produto | Investimento | O que entrega |
-|---------|-------------|---------------|
-| Arquiteto de Mentoria | R$67 | Agente IA que estrutura sua mentoria completa |
-| Programa Black | R$6.000 | Formacao intermediaria com suporte |
-| MAGNA | R$13.000 | Maquina de vendas completa em 21 dias |
-
 ---
 
 <p align="center">
