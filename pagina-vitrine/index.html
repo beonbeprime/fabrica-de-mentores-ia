@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentes de IA para Mentores - Allysson Silveira</title>
+<meta name="description" content="10 agentes gratuitos de IA para mentores. Criados por Allysson Silveira, o único formador de mentores especialista em IA do Brasil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0a;
+--bg-card:#111111;
+--bg-code:#1a1a1a;
+--gold:#c9a84c;
+--gold-light:#e0c96a;
+--gold-dim:rgba(201,168,76,0.15);
+--gold-glow:rgba(201,168,76,0.35);
+--white:#ffffff;
+--white-soft:#e0e0e0;
+--white-muted:#999999;
+--border-gold:rgba(201,168,76,0.25);
+--font-display:'Playfair Display',Georgia,serif;
+--font-body:'Inter',system-ui,sans-serif;
+--radius:12px;
+--radius-sm:8px;
+--ease:cubic-bezier(0.16,1,0.3,1);
+--max-w:1100px;
+}
+html{scroll-behavior:smooth}
+body{
+font-family:var(--font-body);
+background:var(--bg);
+color:var(--white);
+overflow-x:hidden;
+overflow-wrap:break-word;
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+}
+body::after{
+content:'';
+position:fixed;
+inset:0;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+pointer-events:none;
+z-index:999;
+opacity:0.4;
+}
+.wrap{
+max-width:var(--max-w);
+margin:0 auto;
+padding:0 24px;
+}
+section{
+padding:80px 0;
+overflow:hidden;
+}
+
+/* Reveal */
+.reveal{
+opacity:0;
+transform:translateY(36px);
+transition:opacity 0.7s var(--ease),transform 0.7s var(--ease);
+}
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+.reveal-stagger>*:nth-child(1){transition-delay:0s}
+.reveal-stagger>*:nth-child(2){transition-delay:0.08s}
+.reveal-stagger>*:nth-child(3){transition-delay:0.12s}
+.reveal-stagger>*:nth-child(4){transition-delay:0.16s}
+.reveal-stagger>*:nth-child(5){transition-delay:0.2s}
+.reveal-stagger>*:nth-child(6){transition-delay:0.24s}
+.reveal-stagger>*:nth-child(7){transition-delay:0.28s}
+.reveal-stagger>*:nth-child(8){transition-delay:0.32s}
+.reveal-stagger>*:nth-child(9){transition-delay:0.36s}
+.reveal-stagger>*:nth-child(10){transition-delay:0.4s}
+
+/* ====== HEADER / HERO ====== */
+.s-hero{
+padding:120px 0 100px;
+text-align:center;
+position:relative;
+}
+.s-hero::before{
+content:'';
+position:absolute;
+top:0;left:0;right:0;
+height:100%;
+background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.06) 0%,transparent 70%);
+pointer-events:none;
+}
+.hero-name{
+font-family:var(--font-display);
+font-size:clamp(36px,7vw,56px);
+font-weight:700;
+color:var(--white);
+letter-spacing:-0.02em;
+margin-bottom:8px;
+}
+.hero-name span{
+color:var(--gold);
+}
+.hero-subtitle{
+font-size:clamp(14px,2.5vw,18px);
+font-weight:500;
+color:var(--gold);
+text-transform:uppercase;
+letter-spacing:0.15em;
+margin-bottom:32px;
+}
+.hero-text{
+font-size:clamp(16px,2.5vw,20px);
+color:var(--white-soft);
+max-width:720px;
+margin:0 auto 48px;
+line-height:1.7;
+font-weight:300;
+}
+.btn-gold{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);
+color:#0a0a0a;
+font-family:var(--font-body);
+font-weight:700;
+font-size:0.85rem;
+letter-spacing:0.08em;
+text-transform:uppercase;
+text-decoration:none;
+padding:18px 44px;
+border-radius:4px;
+border:none;
+cursor:pointer;
+transition:transform 0.22s ease,box-shadow 0.22s ease,filter 0.22s ease;
+box-shadow:0 0 0 rgba(201,168,76,0);
+}
+.btn-gold:hover{
+transform:translateY(-2px);
+box-shadow:0 0 32px var(--gold-glow);
+filter:brightness(1.08);
+}
+.btn-gold-outline{
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:transparent;
+color:var(--gold);
+font-family:var(--font-body);
+font-weight:600;
+font-size:0.8rem;
+letter-spacing:0.06em;
+text-transform:uppercase;
+text-decoration:none;
+padding:12px 28px;
+border-radius:4px;
+border:1.5px solid var(--border-gold);
+cursor:pointer;
+transition:all 0.22s ease;
+}
+.btn-gold-outline:hover{
+border-color:var(--gold);
+background:var(--gold-dim);
+box-shadow:0 0 20px rgba(201,168,76,0.15);
+}
+
+/* ====== AGENTES GRID ====== */
+.s-agentes{
+background:var(--bg);
+}
+.section-label{
+font-size:clamp(12px,2vw,14px);
+font-weight:600;
+color:var(--gold);
+text-transform:uppercase;
+letter-spacing:0.18em;
+text-align:center;
+margin-bottom:12px;
+}
+.section-title{
+font-family:var(--font-display);
+font-size:clamp(28px,5vw,42px);
+font-weight:700;
+text-align:center;
+margin-bottom:16px;
+letter-spacing:-0.01em;
+}
+.section-desc{
+text-align:center;
+color:var(--white-muted);
+font-size:clamp(14px,2vw,16px);
+max-width:600px;
+margin:0 auto 56px;
+line-height:1.6;
+}
+.agents-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+.agent-card{
+background:var(--bg-card);
+border:1px solid var(--border-gold);
+border-radius:var(--radius);
+padding:32px 28px;
+transition:transform 0.3s var(--ease),border-color 0.3s ease,box-shadow 0.3s ease;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+.agent-card:hover{
+transform:scale(1.02);
+border-color:var(--gold);
+box-shadow:0 8px 40px rgba(201,168,76,0.08);
+}
+.agent-emoji{
+font-size:36px;
+line-height:1;
+}
+.agent-name{
+font-family:var(--font-display);
+font-size:20px;
+font-weight:600;
+color:var(--white);
+}
+.agent-desc{
+font-size:14px;
+color:var(--white-muted);
+line-height:1.5;
+flex:1;
+}
+.agent-card .btn-gold-outline{
+align-self:flex-start;
+margin-top:4px;
+font-size:0.72rem;
+padding:10px 22px;
+}
+
+/* ====== COMO USAR ====== */
+.s-como-usar{
+background:linear-gradient(180deg,var(--bg) 0%,#0d0d0d 100%);
+}
+.steps-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:32px;
+margin-bottom:48px;
+}
+.step{
+text-align:center;
+}
+.step-number{
+width:48px;
+height:48px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--gold),var(--gold-light));
+color:#0a0a0a;
+font-weight:700;
+font-size:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0 auto 16px;
+}
+.step-title{
+font-weight:600;
+font-size:15px;
+margin-bottom:8px;
+color:var(--white);
+}
+.step-text{
+font-size:13px;
+color:var(--white-muted);
+line-height:1.5;
+}
+.step-text a{
+color:var(--gold);
+text-decoration:none;
+border-bottom:1px solid var(--border-gold);
+transition:border-color 0.2s;
+}
+.step-text a:hover{
+border-color:var(--gold);
+}
+.code-block{
+background:var(--bg-code);
+border:1px solid rgba(201,168,76,0.12);
+border-radius:var(--radius-sm);
+padding:20px 24px;
+margin-top:8px;
+overflow-x:auto;
+}
+.code-block code{
+font-family:'SF Mono','Fira Code',Consolas,monospace;
+font-size:13px;
+color:var(--gold);
+line-height:1.8;
+white-space:pre;
+}
+.code-comment{
+color:#555;
+}
+
+/* ====== QUEM E ====== */
+.s-quem-e{
+background:var(--bg);
+}
+.bio-card{
+display:flex;
+gap:40px;
+align-items:center;
+background:var(--bg-card);
+border:1px solid var(--border-gold);
+border-radius:var(--radius);
+padding:48px 40px;
+max-width:900px;
+margin:0 auto;
+}
+.bio-avatar{
+flex-shrink:0;
+width:120px;
+height:120px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--gold-dim),rgba(201,168,76,0.08));
+border:2px solid var(--border-gold);
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:var(--font-display);
+font-size:36px;
+font-weight:700;
+color:var(--gold);
+}
+.bio-text{
+flex:1;
+}
+.bio-text h3{
+font-family:var(--font-display);
+font-size:26px;
+font-weight:700;
+margin-bottom:16px;
+}
+.bio-text p{
+font-size:15px;
+color:var(--white-soft);
+line-height:1.7;
+margin-bottom:16px;
+}
+.bio-link{
+color:var(--gold);
+text-decoration:none;
+font-weight:600;
+font-size:14px;
+border-bottom:1px solid var(--border-gold);
+transition:border-color 0.2s;
+}
+.bio-link:hover{
+border-color:var(--gold);
+}
+
+/* ====== CTA FINAL ====== */
+.s-cta-final{
+background:linear-gradient(180deg,var(--bg) 0%,rgba(201,168,76,0.04) 50%,var(--bg) 100%);
+text-align:center;
+padding:100px 0;
+}
+.cta-final-title{
+font-family:var(--font-display);
+font-size:clamp(24px,4.5vw,36px);
+font-weight:700;
+max-width:700px;
+margin:0 auto 20px;
+line-height:1.4;
+}
+.cta-final-sub{
+font-size:clamp(15px,2.2vw,18px);
+color:var(--white-muted);
+max-width:560px;
+margin:0 auto 40px;
+line-height:1.6;
+}
+.btn-gold-lg{
+display:inline-flex;
+align-items:center;
+gap:12px;
+background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);
+color:#0a0a0a;
+font-family:var(--font-body);
+font-weight:700;
+font-size:1rem;
+letter-spacing:0.08em;
+text-transform:uppercase;
+text-decoration:none;
+padding:22px 56px;
+border-radius:4px;
+border:none;
+cursor:pointer;
+transition:transform 0.22s ease,box-shadow 0.22s ease,filter 0.22s ease;
+}
+.btn-gold-lg:hover{
+transform:translateY(-3px);
+box-shadow:0 0 48px var(--gold-glow);
+filter:brightness(1.1);
+}
+
+/* ====== FOOTER ====== */
+.s-footer{
+padding:40px 0;
+border-top:1px solid rgba(201,168,76,0.1);
+text-align:center;
+}
+.footer-links{
+display:flex;
+justify-content:center;
+gap:32px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+.footer-links a{
+color:var(--white-muted);
+text-decoration:none;
+font-size:14px;
+transition:color 0.2s;
+}
+.footer-links a:hover{
+color:var(--gold);
+}
+.footer-copy{
+font-size:13px;
+color:#555;
+}
+
+/* ====== MOBILE ====== */
+@media(max-width:768px){
+.wrap{padding:0 16px}
+section{padding:56px 0}
+.s-hero{padding:80px 0 64px}
+.agents-grid{grid-template-columns:1fr;gap:16px}
+.agent-card{padding:24px 20px}
+.steps-grid{grid-template-columns:1fr 1fr;gap:24px}
+.bio-card{flex-direction:column;text-align:center;padding:32px 24px;gap:24px}
+.bio-avatar{margin:0 auto}
+.s-cta-final{padding:64px 0}
+.btn-gold-lg{padding:18px 36px;font-size:0.88rem;width:100%;justify-content:center}
+.btn-gold{padding:16px 36px;font-size:0.82rem}
+.code-block{padding:16px}
+.code-block code{font-size:12px}
+.footer-links{gap:20px}
+}
+@media(max-width:480px){
+.steps-grid{grid-template-columns:1fr}
+.hero-text{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<section class="s-hero">
+<div class="wrap">
+<div class="reveal">
+<h1 class="hero-name">Allysson <span>Silveira</span></h1>
+<p class="hero-subtitle">Agentes de IA para Mentores</p>
+</div>
+<p class="hero-text reveal">10 agentes gratuitos que fazem o que uma agência de R$5.000/mês faz. Criados pelo único formador de mentores especialista em IA do Brasil.</p>
+<a href="#agentes" class="btn-gold reveal">Ver Agentes <span>&#8595;</span></a>
+</div>
+</section>
+
+<!-- ====== AGENTES ====== -->
+<section class="s-agentes" id="agentes">
+<div class="wrap">
+<p class="section-label reveal">Arsenal Completo</p>
+<h2 class="section-title reveal">10 Agentes de IA Gratuitos</h2>
+<p class="section-desc reveal">Cada agente resolve um problema real da sua mentoria. Sem enrolação, sem custo, sem limite de uso.</p>
+
+<div class="agents-grid reveal-stagger">
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#127959;&#65039;</span>
+<h3 class="agent-name">Arquiteto de Mentoria</h3>
+<p class="agent-desc">Estrutura sua mentoria completa com IA em minutos.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#9997;&#65039;</span>
+<h3 class="agent-name">Copy Mentor</h3>
+<p class="agent-desc">Gera headlines, ganchos e copies de anúncio para mentoria.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#128241;</span>
+<h3 class="agent-name">Instagram Mentor</h3>
+<p class="agent-desc">Analisa e otimiza seu perfil para vender mentoria.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#127904;</span>
+<h3 class="agent-name">Carrossel Mentor</h3>
+<p class="agent-desc">Cria carrosséis prontos para postar e atrair mentorados.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#128203;</span>
+<h3 class="agent-name">Proposta Mentor</h3>
+<p class="agent-desc">Gera proposta comercial profissional para sua mentoria.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#127919;</span>
+<h3 class="agent-name">Trafego Mentor</h3>
+<p class="agent-desc">Monta campanha de Meta Ads para vender mentoria.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#128737;&#65039;</span>
+<h3 class="agent-name">Quebra Objecoes</h3>
+<p class="agent-desc">Respostas prontas para as objeções de venda.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#127908;</span>
+<h3 class="agent-name">Script de Vendas</h3>
+<p class="agent-desc">Roteiro de call de fechamento high ticket.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#128176;</span>
+<h3 class="agent-name">Precificacao Mentor</h3>
+<p class="agent-desc">Calcula o preço ideal da sua mentoria.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+<div class="agent-card reveal">
+<span class="agent-emoji">&#129309;</span>
+<h3 class="agent-name">Onboarding Mentor</h3>
+<p class="agent-desc">Cria manual de boas-vindas e checklist do mentorado.</p>
+<a href="#como-usar" class="btn-gold-outline">Usar Gratis</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ====== COMO USAR ====== -->
+<section class="s-como-usar" id="como-usar">
+<div class="wrap">
+<p class="section-label reveal">Simples e Rápido</p>
+<h2 class="section-title reveal">Como Usar</h2>
+<p class="section-desc reveal">4 passos para começar a usar qualquer agente agora mesmo.</p>
+
+<div class="steps-grid reveal-stagger">
+<div class="step reveal">
+<div class="step-number">1</div>
+<h4 class="step-title">Instale o Claude Code</h4>
+<p class="step-text">Baixe e configure seguindo a <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">documentação oficial</a>.</p>
+</div>
+<div class="step reveal">
+<div class="step-number">2</div>
+<h4 class="step-title">Clone o repositório</h4>
+<p class="step-text">Copie o projeto para sua máquina com um comando.</p>
+</div>
+<div class="step reveal">
+<div class="step-number">3</div>
+<h4 class="step-title">Navegue até o agente</h4>
+<p class="step-text">Entre na pasta do agente que deseja utilizar.</p>
+</div>
+<div class="step reveal">
+<div class="step-number">4</div>
+<h4 class="step-title">Inicie e use</h4>
+<p class="step-text">Abra o Claude Code na pasta e comece a conversar com o agente.</p>
+</div>
+</div>
+
+<div class="code-block reveal">
+<code><span class="code-comment"># Passo 2: Clone o repositório</span>
+git clone https://github.com/beonbeprime/fabrica-de-mentores-ia
+
+<span class="code-comment"># Passo 3: Navegue até o agente desejado</span>
+cd fabrica-de-mentores-ia/arquiteto-de-mentoria
+
+<span class="code-comment"># Passo 4: Inicie o Claude Code na pasta e comece a usar</span>
+claude</code>
+</div>
+</div>
+</section>
+
+<!-- ====== QUEM E ====== -->
+<section class="s-quem-e" id="quem-e">
+<div class="wrap">
+<p class="section-label reveal">Sobre o Criador</p>
+<h2 class="section-title reveal">Quem é Allysson Silveira</h2>
+
+<div class="bio-card reveal">
+<div class="bio-avatar">AS</div>
+<div class="bio-text">
+<h3>Allysson Silveira</h3>
+<p>Allysson Silveira é o único formador de mentores do Brasil especialista em IA. Criador do método MAGNA, já ajudou dezenas de mentores a faturar de R$10k a R$100k por mês com mentorias estruturadas. Fundador da Fábrica de Mentores e da ON Digital.</p>
+<a href="https://instagram.com/allyssonsilveiraa" target="_blank" rel="noopener" class="bio-link">@allyssonsilveiraa no Instagram</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ====== CTA FINAL ====== -->
+<section class="s-cta-final">
+<div class="wrap">
+<p class="section-label reveal">Próximo Nível</p>
+<h2 class="cta-final-title reveal">Quer a versao COMPLETA de todos os agentes + sua maquina de vendas montada em 21 dias?</h2>
+<p class="cta-final-sub reveal">No programa MAGNA, meu time cria tudo personalizado para o seu nicho.</p>
+<a href="https://fabricadementores.com" target="_blank" rel="noopener" class="btn-gold-lg reveal">Quero Falar com o Time <span>&#8594;</span></a>
+</div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="s-footer">
+<div class="wrap">
+<div class="footer-links">
+<a href="https://instagram.com/allyssonsilveiraa" target="_blank" rel="noopener">Instagram</a>
+<a href="https://github.com/beonbeprime/fabrica-de-mentores-ia" target="_blank" rel="noopener">GitHub</a>
+<a href="https://fabricadementores.com" target="_blank" rel="noopener">fabricadementores.com</a>
+</div>
+<p class="footer-copy">Fabrica de Mentores. Todos os direitos reservados. 2026</p>
+</div>
+</footer>
+
+<script>
+(function(){
+var observer=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add('visible')}
+else{e.target.classList.remove('visible')}
+});
+},{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+})();
+</script>
+</body>
+</html>
